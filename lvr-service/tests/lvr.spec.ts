@@ -74,3 +74,19 @@ test('Throws error when neither property value is provided', () => {
     )
   }
 })
+
+test('Throws error when loan amount is negative', () => {
+  const sampleBody: LvrRequestBody = {
+    loanAmount: 50000,
+    cashOutAmount: 60000,
+    estimatedPropertyValue: 100000,
+  }
+
+  try {
+    calculateLVR(sampleBody)
+  } catch (err) {
+    expect(err.output.payload.message).toBe(
+      'Cash out amount cannot be more than 50% of property value'
+    )
+  }
+})

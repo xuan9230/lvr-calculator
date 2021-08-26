@@ -29,6 +29,11 @@ export const calculateLVR = ({
       'Either physical or estimated property value must be provided'
     )
 
+  if (cashOutAmount && cashOutAmount > 0.5 * propertyValue)
+    throw boom.badRequest(
+      'Cash out amount cannot be more than 50% of property value'
+    )
+
   const lvr = ((borrowingAmount / propertyValue) * 100).toFixed(1) + '%'
 
   return lvr
