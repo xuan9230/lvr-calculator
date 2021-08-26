@@ -2,11 +2,15 @@
 
 Calculates LVR based on `loanAmount`, `cashOutAmount`, `estimatedPropertyValue` and `physicalPropertyValue`.
 
-Serverless - AWS Node.js Typescript
+Serverless - AWS Lambda Node.js Typescript
+
+Has been deployed to Lambda, access it directly via api gateway `https://ykyvsp9shi.execute-api.us-east-1.amazonaws.com/dev/lvr` or locally, see below instructions.
 
 ## Assumptions
 
-1. Loan Amount and Estimated Property Value are required.
+1. Loan Amount and Estimated Property Value are required in the request body.
+
+2. For simplicity, client always sends numeric value. Otherwise we can easily do the type check & convertion in the handler.
 
 ## Installation/deployment instructions
 
@@ -24,13 +28,17 @@ Depending on your preferred package manager, follow the instructions below to de
 - Run `yarn` to install the project dependencies
 - Run `yarn sls deploy` to deploy this stack to AWS
 
+## Unit Tests
+
+Run `yarn test`
+
 ## Test your service
 
-This template contains a single lambda function triggered by an HTTP request made on the provisioned API Gateway REST API `/lvr` route with `POST` method. The request body must be provided as `application/json`. The body structure is tested by API Gateway against `src/functions/lvr/schema.ts` JSON-Schema definition: it must contain the `name` property.
+This template contains a single lambda function triggered by an HTTP request made on the provisioned API Gateway REST API `/lvr` route with `POST` method. The request body must be provided as `application/json`. The body structure is tested by API Gateway against `src/functions/lvr/schema.ts` JSON-Schema definition: it must contain the `loanAmount` and `estimatedPropertyValue` property.
 
 - requesting any other path than `/lvr` with any other method than `POST` will result in API Gateway returning a `403` HTTP error code
-- sending a `POST` request to `/lvr` with a payload **not** containing a string property named `name` will result in API Gateway returning a `400` HTTP error code
-- sending a `POST` request to `/lvr` with a payload containing a string property named `name` will result in API Gateway returning a `200` HTTP status code with a message saluting the provided name and the detailed event processed by the lambda
+- sending a `POST` request to `/lvr` with a payload **not** containing required properties will result in API Gateway returning a `400` HTTP error code
+- sending a `POST` request to `/lvr` with a payload containing required properties will result in API Gateway returning a `200` HTTP status code with a message saluting the provided name and the detailed event processed by the lambda
 
 > :warning: As is, this template, once deployed, opens a **public** endpoint within your AWS account resources. Anybody with the URL can actively execute the API Gateway endpoint and the corresponding lambda. You should protect this endpoint with the authentication method of your choice.
 
