@@ -10,6 +10,7 @@
     "node": ">=14.15.0"
   },
   "dependencies": {
+    "@hapi/boom": "^9.1.4",
     "@middy/core": "^1.5.2",
     "@middy/http-json-body-parser": "^1.5.2",
     "source-map-support": "^0.5.19"

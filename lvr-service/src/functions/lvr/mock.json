@@ -1,0 +1,6 @@
+{
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": "{\"loanAmount\":500000,\"cashOutAmount\":100000,\"estimatedPropertyValue\":900000,\"physicalPropertyValue\":1000000}"
+}
