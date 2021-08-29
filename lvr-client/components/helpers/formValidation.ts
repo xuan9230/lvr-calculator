@@ -31,10 +31,14 @@ export const getValidationSchema = ({
 
   const validationRules = { ...formValidationSchema }
 
-  if (physicalPropertyValue)
+  if (physicalPropertyValue) {
     validationRules.physicalPropertyValue = yup
       .number()
       .typeError('Must be a number')
+    validationRules.physicalEvidence = yup
+      .string()
+      .required('Upload the evidence for physical property value.')
+  }
 
   if (cashOutAmount) {
     if (typeof numPtyValue === 'number') {

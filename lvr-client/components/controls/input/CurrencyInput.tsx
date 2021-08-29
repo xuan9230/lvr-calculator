@@ -1,8 +1,9 @@
 import React from 'react'
 import { useFormContext, Controller } from 'react-hook-form'
 import TextField from '@material-ui/core/TextField'
+import InputAdornment from '@material-ui/core/InputAdornment'
 
-function FormInput({
+function CurrencyInput({
   name,
   label,
   required = false,
@@ -52,8 +53,11 @@ function FormInput({
       }}
       error={isError}
       helperText={errorMessage}
+      InputProps={{
+        startAdornment: <InputAdornment position="start">$</InputAdornment>,
+      }}
     />
   )
 }
 
-export default FormInput
+export default CurrencyInput

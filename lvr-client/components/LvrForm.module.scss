@@ -3,9 +3,20 @@
     width: 500px;
   }
   @media (max-width: 991px) {
-    width: 320px;
+    width: 300px;
   }
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#lvr-result {
+  margin: 8px;
+  height: 36px;
+}
+
+#buttons-container {
+  align-self: stretch;
+  display: flex;
+  justify-content: space-evenly;
 }

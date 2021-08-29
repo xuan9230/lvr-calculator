@@ -15,9 +15,7 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <h1 className={styles.title}>LVR Calculator</h1>
 
-        <p className={styles.description}>
-          Get LVR for your home loan Instantly.
-        </p>
+        <p className="description">Get LVR for your home loan instantly.</p>
         <LvrForm />
       </main>
 

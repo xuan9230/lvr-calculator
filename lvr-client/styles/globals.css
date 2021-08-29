@@ -18,3 +18,13 @@ a {
 .required-label span {
   color: #f44336;
 }
+
+.title,
+.description {
+  text-align: center;
+}
+
+.description {
+  line-height: 1.2;
+  font-size: 1.2rem;
+}
