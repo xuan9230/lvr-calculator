@@ -14,3 +14,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.required-label span {
+  color: #f44336;
+}

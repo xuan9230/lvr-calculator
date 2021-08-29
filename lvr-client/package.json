@@ -9,12 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "1.2.0",
+    "@material-ui/core": "^4.12.3",
+    "axios": "^0.21.1",
     "next": "11.1.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-hook-form": "6.15.4",
+    "sass": "^1.38.2",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@types/react": "17.0.19",
+    "@types/styled-components": "^5.1.13",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
     "typescript": "4.3.5"
