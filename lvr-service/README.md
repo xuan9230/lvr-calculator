@@ -10,7 +10,13 @@ Has been deployed to Lambda, access it directly via api gateway `https://ykyvsp9
 
 1. Loan Amount and Estimated Property Value are required in the request body.
 
-2. For simplicity, client always sends numeric value. Otherwise we can easily do the type check & convertion in the handler.
+## Stretches/Future Work
+
+1. Deployment: handled by serverless framework. Infrastructure is configured as code in `serverless.ts`. Already deployed to `dev`, multi environments can be added in the future.
+
+2. Authorisation: requires users to be approved before they can access the API. Based on the current serverless architecure, a good choice is to use `Lambda Authorizer` - when a client makes a request to the API, the reqeust contains the user's identity in a form e.g. Json Web Token (JWT), then API Gateway calls the Lambda authorizer, which takes the caller's identity as input and returns an IAM policy as output.
+
+3. Sanitization: for simplicity, client always sends numeric value, and the service is not doing a complete type checking/validations. This can easily be added into the handler.
 
 ## Installation/deployment instructions
 
